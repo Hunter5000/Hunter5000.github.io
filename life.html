@@ -7,18 +7,13 @@
 </head>
 
 <body style="background-color: lightgrey">
-
-<h1>"Life" generator</h1>
     
-<div id="setup">
-Display width:
-<input type="number" id="dispwidth" min=1 step=1  value=1200>
-<br>
-Display height:
-<input type="number" id="dispheight" min=1 step=1  value=600>
-<br>
+<div id="setup" style="margin: auto; text-align: center">
+    
+<h1>Life-like cellular automata simulator</h1>
+    
 Grid width:
-<input type="number" id="gridwidth" min=1 step=1 value=60>
+<input type="number" id="gridwidth" min=1 step=1 value=80>
 <br>
 Grid height:
 <input type="number" id="gridheight" min=1 step=1 value=30>
@@ -31,6 +26,8 @@ Ticks per second:
 Rulestring:
 <input type="text" id="rulestring" value="23/3">
 <br>
+(23/3 is Conway's Game of Life, 12345/3 is Maze, 34678/3678 is Day & Night)
+<br>
 <br>
 Enable grid wrapping:
 <input type="checkbox" id="wrapping" checked>
@@ -40,24 +37,34 @@ Enable grid wrapping:
 
 </div>
     
-    
-<div id="postSetup" style="display:none">
+<div id="postSetup" style="display:none; width: 100%; height: 100%; position: fixed; text-align: center">
 
-<div id="canvas" style="width: 1000px; height: 600px; background-color: white; margin: auto; position: relative">
+<div id="canvas" style="width: 80%; height: 55%; background-color: white; margin: auto; position: relative">
     
 </div>
     
 <br>
     
 <div style="margin: auto; display: block; text-align: center" id="tickCounter">Tick count: 0</div>
+
+<br>    
     
-<br>
+<div style="margin: auto; display: block; text-align: center">
     
-<input type="button" id="myBtn" onclick="toggle()" value="Run" style="margin: auto; display: block; width: 200px">
+<input type="button" id="myBtn" onclick="toggle()" value="Run" style="margin: auto; width: 10%">
+    
+<input type="button" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; width: 10%">
 
 <br>
     
-<input type="button" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; display: block; width: 200px">
+<input type="button" id="saveBtn" onclick="save()" value="Save" style="margin: auto; width: 10%">
+<input type="button" id="loadBtn" onclick="load()" value="Load" style="margin: auto; width: 10%">
+
+<br>    
+
+<input type="text" id="saveBox" oninput="loadSave()" style="width: 20%" value="">
+    
+</div>
     
 </div>
     
