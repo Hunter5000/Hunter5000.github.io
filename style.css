@@ -1,0 +1,17 @@
+.offCell {
+    background-color: white
+}
+
+.onCell {
+    background-color: black
+}
+
+.offCell:hover {
+    cursor: pointer;
+    background-color: skyblue
+}
+
+.onCell:hover {
+    cursor: pointer;
+    background-color: orangered
+}
