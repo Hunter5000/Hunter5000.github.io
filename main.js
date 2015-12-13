@@ -15,6 +15,8 @@ var deathRule = {
     max: 1
 };
 
+var wrapping = true;
+
 /////////////////////////////////////////////////////////////////
 
 var grid;
@@ -148,9 +150,17 @@ function Grid(X, Y) {
     }
     this.getCell = function (x, y) {
         if (x < 0 || y < 0) {
-            return null;
+            if (wrapping) {
+                return this.cells[x - Math.floor(x / this.X) * this.X][y - Math.floor(y / this.Y) * this.Y];
+            } else {
+                return null;
+            }
         } else if (x >= this.X || y >= this.Y) {
-            return null;
+            if (wrapping) {
+                return this.cells[x - Math.floor(x / this.X) * this.X][y - Math.floor(y / this.Y) * this.Y];
+            } else {
+                return null;
+            }
         } else {
             return this.cells[x][y];
         }
@@ -239,6 +249,8 @@ function setup() {
         min: document.getElementById("lowerdeath").value, //If min is greater than max, we take the complement
         max: document.getElementById("upperdeath").value
     };
+    
+    wrapping = document.getElementById("wrapping").checked;
     
     canvasWidth = Number(document.getElementById("dispwidth").value);
     canvasHeight = Number(document.getElementById("dispheight").value);
