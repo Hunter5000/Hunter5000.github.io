@@ -5,15 +5,9 @@ var tickTime = 10;
 var sizeX = 50;
 var sizeY = 30;
 
-var birthRule = {
-    min: 3,
-    max: 3
-};
+var birth = [3];
 
-var deathRule = {
-    min: 4, //If min is greater than max, we take the complement
-    max: 1
-};
+var survive = [2, 3];
 
 var wrapping = true;
 
@@ -69,32 +63,16 @@ function Cell(grid, x, y) {
         }
         
         if (this.state) {
-            //We are currently alive. Check to see if we meet the death requirements.
+            //We are currently alive. Check to see if we (don't) meet the survival requirements.
             this.preparedState = 1;
-            if (deathRule.min > deathRule.max) {
-                if (alive >= deathRule.min) {
-                    this.preparedState = 0;
-                } else if (alive <= deathRule.max) {
-                    this.preparedState = 0;
-                }
-            } else {
-                if (alive >= deathRule.min && alive <= deathRule.max) {
-                    this.preparedState = 0;
-                }
+            if (survive.indexOf(String(alive)) === -1) {
+                this.preparedState = 0;
             }
         } else {
             //We are currently dead. Check to see if we meet the birth requirements.
             this.preparedState = 0;
-            if (birthRule.min > birthRule.max) {
-                if (alive >= birthRule.min) {
-                    this.preparedState = 1;
-                } else if (alive <= birthRule.max) {
-                    this.preparedState = 1;
-                }
-            } else {
-                if (alive >= birthRule.min && alive <= birthRule.max) {
-                    this.preparedState = 1;
-                }
+            if (birth.indexOf(String(alive)) !== -1) {
+                this.preparedState = 1;
             }
         }
     };
@@ -240,15 +218,9 @@ function setup() {
     
     tickTime = 1000 / document.getElementById("ticks").value;
 
-    birthRule = {
-        min: document.getElementById("lowerbirth").value,
-        max: document.getElementById("upperbirth").value
-    };
+    survive = document.getElementById("rulestring").value.split("/")[0].split("");
 
-    deathRule = {
-        min: document.getElementById("lowerdeath").value, //If min is greater than max, we take the complement
-        max: document.getElementById("upperdeath").value
-    };
+    birth = document.getElementById("rulestring").value.split("/")[1].split("");
     
     wrapping = document.getElementById("wrapping").checked;
     
