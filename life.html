@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>Life</title> 
+</head>
+
+<body style="background-color: lightgrey">
+
+<h1>"Life" generator</h1>
+    
+<div id="setup">
+Display width:
+<input type="number" id="dispwidth" min=1 step=1  value=1000>
+<br>
+Display height:
+<input type="number" id="dispheight" min=1 step=1  value=600>
+<br>
+Grid width:
+<input type="number" id="gridwidth" min=1 step=1 value=50>
+<br>
+Grid height:
+<input type="number" id="gridheight" min=1 step=1 value=30>
+<br>
+<br>
+Ticks per second:
+<input type="number" id="ticks" min=0 step=1 value=10>
+<br>
+<br>
+Lower limit for birth:
+<input type="number" id="lowerbirth" min=0 max=8 step=1 value=3>
+<br>
+Upper limit for birth:
+<input type="number" id="upperbirth" min=0 max=8 step=1 value=3>
+<br>
+<br>
+Lower limit for death:
+<input type="number" id="lowerdeath" min=0 max=8 step=1 value=4>
+<br>
+Upper limit for death:
+<input type="number" id="upperdeath" min=0 max=8 step=1 value=1>
+<br>
+<br>
+<input type="button" id="setupBtn" onclick="setup()" value="Create life!" style="width: 300px">
+
+</div>
+    
+    
+<div id="postSetup" style="display:none">
+
+<div id="canvas" style="width: 1000px; height: 600px; background-color: white; margin: auto; position: relative">
+    
+</div>
+    
+<br>
+    
+<div style="margin: auto; display: block; text-align: center" id="tickCounter">Tick count: 0</div>
+    
+<br>
+    
+<input type="button" id="myBtn" onclick="toggle()" value="Run" style="margin: auto; display: block; width: 200px">
+
+<br>
+    
+<input type="button" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; display: block; width: 200px">
+    
+</div>
+    
+<script src="main.js"> </script>
+</body>
+    
+</html>
