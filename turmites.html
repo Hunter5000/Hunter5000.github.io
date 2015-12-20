@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="turmites.css">
+    <meta charset="utf-8">
+    <title>Turmites</title> 
+</head>
+
+<body style="background-color: lightgrey">
+    
+<div id="postSetup" style="width: 100%; height: 100%; position: fixed; text-align: left">
+    
+<input type="button" id="myBtn" onclick="toggle()" value="Run" style="margin: auto; width: 10%">
+
+<input type="button" id="stepBtn" onclick="stepp()" value="Step" style="margin: auto; width: 10%">
+   
+<input type="button" id="tickBtn" onclick="tick()" value="Tick" style="margin: auto; width: 10%">
+    
+<input type="button" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; width: 10%">
+
+<input type="button" id="redisplayBtn" onclick="calibrate()" value="Redraw grid" style="margin: auto; width: 10%">
+    
+Milliseconds per tick <input type="number" id="msPerTick" min=1 step=1 value=100 onchange="updateParams()" style="margin: auto; width: 10%">
+    
+Steps per tick <input type="number" id="stepsPerTick" min=1 step=1 value=1 onchange="updateParams()" style="margin: auto; width: 10%">
+    
+Rulestring <input type="text" id="rulestring" value="RL" onchange="updateParams()" style="margin: auto; width: 10%">
+    
+<div style="margin: auto; display: block; text-align: center" id="tickCounter">Step count: 0</div>
+    
+    
+<div id="canvas" style="width: 100%; height: 100%; background-color: white; margin: auto; position: relative">
+    
+</div>
+    
+<br>
+    
+</div>
+    
+<script src="turmites.js"> </script>
+</body>
+    
+</html>
