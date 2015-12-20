@@ -7,14 +7,14 @@ cell {
 
 .cell:hover {
     cursor: pointer;
-    background-image: url("turmiteHighlight.png");
+    background-image: url("http://i.imgur.com/GNlFQ0i.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .turmite {
-    background-image: url("turmite.png");
+    background-image: url("http://i.imgur.com/1ncxMB7.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
