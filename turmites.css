@@ -1,0 +1,26 @@
+body { margin: 0; padding: 0; }
+
+cell {
+    background-repeat: no-repeat;
+    background-image: none;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background-image: url("turmiteHighlight.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.turmite {
+    background-image: url("turmite.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.turmite:hover {
+    cursor: pointer;
+}
