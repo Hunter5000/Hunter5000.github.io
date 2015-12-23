@@ -3,33 +3,112 @@
 <head>
     <link rel="stylesheet" type="text/css" href="turmites.css">
     <meta charset="utf-8">
-    <title>Turmites</title> 
+    <title>Turmites</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
-<body style="background-color: lightgrey">
+<body>
     
-<div id="postSetup" style="width: 100%; height: 100%; position: fixed; text-align: left">
+<div id="setup">
     
-<input type="button" id="myBtn" onclick="toggle()" value="Run" style="margin: auto; width: 10%">
+<h1>Turmites</h1>
+    
+Initial grid width:
+<input type="number" id="gridwidth" min=2 step=1 value=100>
+<br>
+<br>
+Margin of grid enlargening:
+<input type="number" id="loadmargin" min=0 step=1 value=2>
+<br>
+<br>
+Grid padding:
+<input type="number" id="loadpadding" min=0 step=1 value=2>
+<br>
+<br>
+    
+Rulestring:
+<input type="text" id="setRulestring" oninput = "resetPreset()" value="RL" style="width: 300px"> <input type="button" id="setupBtn" onclick="parse()" value="Convert to triple format">
+<br>
+<br>
+    
+Rulestring presets:
+<select id="presets" onchange = "preset()">
+<option value="">Custom</option>
+<option value="RL" selected>"Langton's ant"</option>
+<option value="RLR">Chaotic growth</option>
+<option value="LLRR">Symmetric growth</option>
+<option value="LRRRRRLLR">Square space filler</option>
+<option value="LLRRRLRLRLLR">Convoluted highway</option>
+<option value="RRLLLRLLLRRR">Triangle filler</option>
+<option value="{{{1, 1, 1}, {1, 8, 0}}, {{1, 2, 1}, {0, 1, 0}}}">"Coiled rope"</option>
+<option value="{{{1, 2, 0}, {1, 2, 1}}, {{0, 1, 0}, {0, 1, 1}}}">Semi-chaotic growth</option>
+<option value="{{{1, 2, 1}, {0, 2, 1}}, {{1, 1, 0}, {1, 1, 1}}}">Chaotic growth and highway</option>
+<option value="{{{1, 2, 1}, {1, 8, 1}}, {{1, 2, 1}, {0, 2, 0}}}">"Worm trails"</option>
+<option value="{{{1, 8, 0}, {1, 2, 1}}, {{0, 2, 0}, {0, 8, 1}}}">"Computer art"</option>
+<option value="{{{1, 8, 1}, {1, 8, 1}}, {{1, 2, 1}, {0, 1, 0}}}">"Fibonacci"</option>
+<option value="{{{0, 2, 1}, {0, 8, 0}}, {{1, 8, 1}, {0, 2, 0}}}">"Striped spiral"</option>
+</select> 
+<br>
+<br>
+Show cell borders:
+<input type="checkbox" id="borders">
+<br>
+<br> 
+"Off" cell color:
+<input type="color" id="offcolor" value="#ffffff">
+<br>
+<br>
+"On" cell color:
+<input type="color" id="oncolor" value="#000000">
+<br>
+<br>
+Axis color:
+<input type="color" id="axiscolor" value="#0000ff">
+<br>
+<br>
+Start with a turmite at the origin:
+<input type="checkbox" id="startTurmite">
+<br>
+<br> 
+<input type="button" id="setupBtn" onclick="setup()" value="Enter" style="width: 300px">
+    
+</div>
+    
+<div id="postSetup">
 
-<input type="button" id="stepBtn" onclick="stepp()" value="Step" style="margin: auto; width: 10%">
-   
-<input type="button" id="tickBtn" onclick="tick()" value="Tick" style="margin: auto; width: 10%">
+<div class="clearfix"></div> 
     
-<input type="button" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; width: 10%">
+<div class = "bar">
+    
+<input type="button" class="btn" id="runBtn" onclick="toggle()" value="Run" style="margin: auto; width: 70px">
 
-<input type="button" id="redisplayBtn" onclick="calibrate()" value="Redraw grid" style="margin: auto; width: 10%">
+<input type="button" class="btn" id="stepBtn" onclick="stepp()" value="Step" style="margin: auto; width: 70px">
+
+<input type="button" class="btn" id="tickBtn" onclick="tick()" value="Tick" style="margin: auto; width: 70px">
     
-Milliseconds per tick <input type="number" id="msPerTick" min=1 step=1 value=100 onchange="updateParams()" style="margin: auto; width: 10%">
+<input type="button" class="btn" id="resetBtn" onclick="reset()" value="Reset" style="margin: auto; width: 70px">
     
-Steps per tick <input type="number" id="stepsPerTick" min=1 step=1 value=1 onchange="updateParams()" style="margin: auto; width: 10%">
+Ms / tick <input type="number" id="msPerTick" min=1 step=1 value=1 onchange="updateParams()" style="margin: auto; width: 60px">
     
-Rulestring <input type="text" id="rulestring" value="RL" onchange="updateParams()" style="margin: auto; width: 10%">
+Steps / tick <input type="number" id="stepsPerTick" min=1 step=1 value=1 onchange="updateParams()" style="margin: auto; width: 60px">
     
-<div style="margin: auto; display: block; text-align: center" id="tickCounter">Step count: 0</div>
+<div style="margin: auto; display: inline-block; text-align: center" id="tickCounter">Step count: 0</div> 
+|   
+<div style="margin: auto; display: inline-block; text-align: center" id="dimensionTracker">Bounding box: 0x0</div>
+|   
+<div style="margin: auto; display: inline-block; text-align: center" id="cellTracker">Cells: 0</div>
+|
+<div style="margin: auto; display: inline-block; text-align: center" id="turmiteTracker">Turmites: 0</div>
+|
+<div style="margin: auto; display: inline-block; text-align: center" id="rulestring">Rulestring:</div>
+|
+<div style="margin: auto; display: inline-block; text-align: center" id="coordinate">Coordinate: None</div>
     
-    
-<div id="canvas" style="width: 100%; height: 100%; background-color: white; margin: auto; position: relative">
+</div>
+
+<div class = "content"> 
+<div id="canvas" onmousemove="calcCursor(event)" onmouseleave="endCursor()">
+</div>
     
 </div>
     
@@ -37,7 +116,8 @@ Rulestring <input type="text" id="rulestring" value="RL" onchange="updateParams(
     
 </div>
     
-<script src="turmites.js"> </script>
+<script src="turmites.js"></script>
+    
 </body>
     
 </html>
