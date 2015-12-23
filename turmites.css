@@ -1,26 +1,69 @@
-body { margin: 0; padding: 0; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    color: indigo;
+    background-color: ivory;
+}
 
-cell {
+#setup {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#postSetup {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    text-align: left;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.bar {
+  float: top;
+  width: 100%;
+  height: 24px;
+}
+
+.content {
+  height: 97%;
+  width: 100%;
+}
+
+#canvas {
+    height: 100%;
+    float: top;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+} 
+
+.onCell, .axis {
     background-repeat: no-repeat;
     background-image: none;
 }
 
-.cell:hover {
-    cursor: pointer;
-    background-image: url("http://oi63.tinypic.com/2d8ffp.jpg");
+.offCell {
+    display: none;
+}
+
+.axis {
+    opacity: 0.3;
+}
+
+.turmite, .cursor {
+    background-image: url("turmite.svg");
     background-position: center center;
+    background-repeat: no-repeat;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.turmite {
-    background-image: url("http://oi66.tinypic.com/24qrddx.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.turmite:hover {
+.turmite, .cursor:hover {
     cursor: pointer;
 }
