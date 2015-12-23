@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="128"
+   height="128"
+   id="ant"
+   sodipodi:version="0.32"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="turmite.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="true">
+  <sodipodi:namedview
+     inkscape:window-height="577"
+     inkscape:window-width="852"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="2.9609375"
+     inkscape:cx="64"
+     inkscape:cy="63.358311"
+     inkscape:window-x="424"
+     inkscape:window-y="382"
+     inkscape:current-layer="ant"
+     showgrid="false"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="ant">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>ant</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Andy Fitzsimon</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>andy.brisgeek.com</dc:source>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>ant</rdf:li>
+            <rdf:li>logo</rdf:li>
+            <rdf:li>shiny</rdf:li>
+            <rdf:li>insect</rdf:li>
+            <rdf:li>glossy</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/2.5/" />
+        <dc:date>2006-08-30</dc:date>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>Andy Fitzsimon</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:description>Balanced ant design with specularity.</dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/2.5/">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Notice" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Attribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5">
+    <linearGradient
+       id="WhiteTransparent">
+      <stop
+         style="stop-color:white;stop-opacity:1"
+         offset="0"
+         id="stop8" />
+      <stop
+         style="stop-color:white;stop-opacity:0"
+         offset="1"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#WhiteTransparent"
+       id="linearGradient3153"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.633768,2.365244,-2.365244,0.633768,761.1766,-1845.476)"
+       x1="682.04"
+       y1="471.38"
+       x2="680.06"
+       y2="472.52" />
+    <linearGradient
+       xlink:href="#WhiteTransparent"
+       id="linearGradient3156"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.365244,-0.633768,-0.633768,2.365244,1975.966,-632.1011)"
+       x1="681.72"
+       y1="471.57"
+       x2="676.89"
+       y2="474.35" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#WhiteTransparent"
+       id="linearGradient2563"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.120622,1.224339,-1.224339,2.120622,-793.7969,-1778.614)"
+       x1="682.04"
+       y1="471.38"
+       x2="680.06"
+       y2="472.52" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#WhiteTransparent"
+       id="linearGradient2566"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.120622,1.224339,1.224339,2.120622,923.1751,-1779.614)"
+       x1="681.72"
+       y1="471.57"
+       x2="676.89"
+       y2="474.35" />
+  </defs>
+  <path
+     d="m 25.093673,122.37813 c 0.952986,1.26777 12.781216,-8.93552 13.469929,-9.56503 9.553882,-8.71695 9.882221,-17.346475 11.307693,-18.413142 1.417468,-1.075405 6.15837,-6.216393 7.551811,-15.361756 2.178253,-0.03497 4.236381,-0.16612 6.190402,-0.410929 -1.417465,5.621863 -2.634726,11.951922 -2.626717,15.492909 -0.008,3.733341 3.227338,16.375978 4.19634,18.640458 0.344356,0.79563 0.008,15.23936 1.449499,15.23936 1.457508,0 1.994063,-14.38253 1.257301,-14.97707 0.760785,-5.21968 -1.713772,-20.004387 -1.457508,-21.57816 0.272282,-1.573771 3.499619,-13.683072 3.515636,-13.770504 3.827958,-0.90929 5.918121,-2.229511 8.472762,-3.794539 -0.160167,6.015306 5.293474,16.81313 10.811175,22.837182 4.58074,5.001091 11.988404,13.333341 13.622094,14.592351 6.08629,4.70384 25.12199,2.59673 25.12199,-0.009 0,-2.0459 -17.04163,2.85028 -23.12794,-1.85355 -1.75381,-1.35519 -11.227604,-16.507119 -13.085524,-18.27324 -1.85792,-1.766122 -4.51667,-11.156295 -7.207452,-15.090725 2.346422,3.96066 6.014222,6.671045 11.059432,6.671045 18.739394,0 26.291194,-10.67542 26.379284,-18.692914 0,0 0.0239,-0.0088 0.0239,-0.02623 0,-0.01748 0,-0.03498 0,-0.05246 0,-0.01748 0,-0.03497 0,-0.05246 0,-0.01748 0,-0.03497 0,-0.05246 -0.0961,-8.008751 -7.66391,-18.631711 -26.371254,-18.631711 -4.70086,-0.0088 -8.23252,2.360658 -10.586952,5.875415 2.506592,-4.275414 4.965132,-12.660121 6.710942,-14.321324 1.84991,-1.774866 11.323704,-16.856843 13.085534,-18.220783 6.07829,-4.712576 23.14393,0.174862 23.14393,-1.888525 0,-2.587984 -19.04369,-4.703835 -25.12999,0 -1.62568,1.267755 -9.025334,9.591264 -13.606064,14.592363 -5.525718,6.032792 -10.979358,16.81313 -10.811184,22.837179 -2.554642,-1.565028 -4.700861,-2.876506 -8.536827,-3.794539 -0.008,-0.07864 -3.187286,-12.187946 -3.451559,-13.77046 C 66.200103,34.97271 68.68267,20.19674 67.913875,14.968322 68.658646,14.382531 68.114082,-0.00873787 66.664582,3.9881883e-6 65.215084,-0.00877496 65.527407,14.478704 65.183051,15.274336 c -0.97701,2.255733 -4.20435,14.837167 -4.20435,18.579247 0.008,3.540986 1.225268,9.923507 2.626718,15.54537 C 61.667445,49.154144 59.609317,48.970537 57.431064,48.935565 56.021656,39.790201 51.288763,34.640468 49.871295,33.582545 48.45383,32.507133 48.125491,23.877617 38.555594,15.160667 37.874889,14.539909 26.03865,4.3278774 25.093673,5.6043736 23.980521,7.0994533 35.015935,16.45466 35.984937,16.830621 c 1.153191,2.535521 8.504794,14.583616 9.033341,16.034983 0.520538,1.460111 2.923022,8.80438 7.207452,16.612037 -4.188331,1.197816 -7.031271,4.214212 -8.536827,7.903832 -0.008,-5.097271 -0.920952,-8.804379 -6.062269,-8.804379 -5.621814,0 -10.803173,1.180329 -14.959471,3.16503 -2.586674,-5.429513 -5.357539,-9.363943 -5.749946,-10.544272 -0.408421,-1.180329 -1.897962,-1.634974 -5.661854,0.60328 -6.182394,3.68962 -11.53993405,7.685252 -11.24362805,8.550827 0.312323,0.865575 12.35677705,-3.173773 14.95146105,-6.636072 0.664688,4.100551 1.881947,6.793449 4.052192,10.212032 -3.73186,2.692898 -5.974178,6.155197 -6.030237,9.975966 -0.008,0.0088 -0.03203,0.01748 -0.02401,0.02622 0,0.03497 -0.008,0.07869 -0.008,0.113657 0.04806,3.829511 2.322403,7.361756 6.06227,10.04591 -2.162237,3.427327 -3.411528,6.102739 -4.084223,10.194546 -2.578691,-3.46229 -14.61513805,-7.527867 -14.91144505,-6.662292 -0.296306,0.865573 5.02119305,4.887436 11.20358505,8.577056 3.771901,2.246997 5.293476,1.757379 5.685881,0.57705 0.400415,-1.189072 3.17128,-5.123502 5.757954,-10.553016 4.148291,1.993445 9.345666,3.173775 14.967478,3.173775 5.125301,0 6.054262,-3.707108 6.054262,-8.795638 1.513565,3.680879 4.356505,6.697275 8.528821,7.895091 -4.284432,7.807657 -6.654882,15.186902 -7.18343,16.638273 -0.520539,1.460099 -7.928199,13.499468 -9.08139,16.034988 -0.960996,0.3672 -11.980391,9.70493 -10.859231,11.20875 z"
+     style="fill:#ff0000"
+     id="ant-shape"
+     inkscape:connector-curvature="0" />
+</svg>
