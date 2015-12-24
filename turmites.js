@@ -183,7 +183,8 @@ function Turmite(grid, state, direction, x, y) {
                 root.grid.removeTurmite(root.id);
             };
             turmiteDiv.onclick = function () {
-                root.turn(2);
+                root.direction -= 1;
+                this.style.transform = "rotate(" + (180 - root.direction * 90) + "deg)";
             };
             
             canvas.appendChild(turmiteDiv);
