@@ -638,7 +638,7 @@ document.getElementById("reset").onclick = function () {
 	document.getElementById("game").style.display = "none";
 	
 	paused = false;
-	document.getElementById("pause").value = paused ? "Pause" : "Unpause";
+	document.getElementById("pause").value = paused ? "Unpause" : "Pause";
 	
 	while (document.getElementById("messages").hasChildNodes()) {
 		document.getElementById("messages").removeChild(document.getElementById("messages").firstChild);
@@ -647,8 +647,8 @@ document.getElementById("reset").onclick = function () {
 
 document.getElementById("pause").onclick = function () {
 	"use strict";
-	document.getElementById("pause").value = paused ? "Pause" : "Unpause";
 	paused = !paused;
+	document.getElementById("pause").value = paused ? "Unpause" : "Pause";
 	if (!paused) {
 		showMessage(curMessage);
 	}
