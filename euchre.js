@@ -601,16 +601,16 @@ document.getElementById("start").onclick = function () {
 	aggroRange = document.getElementById("aggroRange").value;
 	
 	name00 = document.getElementById("name00").value || "Artour";
-	agg00 = (document.getElementById("agg00").value % 100) / 100;
+	agg00 = (document.getElementById("agg00").value % 101) / 100;
 	
 	name01 = document.getElementById("name01").value || "Clinton";
-	agg01 = (document.getElementById("agg01").value % 100) / 100;
+	agg01 = (document.getElementById("agg01").value % 101) / 100;
 	
 	name10 = document.getElementById("name10").value || "Clement";
-	agg10 = (document.getElementById("agg10").value % 100) / 100;
+	agg10 = (document.getElementById("agg10").value % 101) / 100;
 	
 	name11 = document.getElementById("name11").value || "Peter";
-	agg11 = (document.getElementById("agg11").value % 100) / 100;
+	agg11 = (document.getElementById("agg11").value % 101) / 100;
 	
 	if (document.getElementById("dealer0").checked) {
 		dealer = 0;
@@ -622,7 +622,7 @@ document.getElementById("start").onclick = function () {
 		dealer = 3;
 	}
 	
-	delay = document.getElementById("delay").value % 9999;
+	delay = document.getElementById("delay").value % 10000;
 	instant = document.getElementById("instant").checked;
 	
 	document.getElementById("setup").style.display = "none";
