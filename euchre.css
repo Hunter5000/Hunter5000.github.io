@@ -33,7 +33,13 @@ h1 {
 }
 
 .headerButton {
-	width: 200px;
+	width: 100px;
+	position: relative;
+	left: 10px;
+	top: 10px;
+}
+
+#seedSpan {
 	position: relative;
 	left: 10px;
 	top: 10px;
