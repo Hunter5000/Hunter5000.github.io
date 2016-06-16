@@ -227,11 +227,7 @@ function AI(name, aggressiveness) {
 			partnerDiff = totalValue + value - basePartnerCall + (Math.random() * aggroRange * this.aggressiveness);
 		}
 
-		if (partnerDiff >= 0 && partnerDiff > diff) {
-			//Do not go alone... you are doing this because your partner is the dealer
-			this.speak("Pick it up.");
-			return [true, false];
-		} else if (diff >= goingAloneMalus) {
+		if (diff >= goingAloneMalus) {
 			//Go alone
 			if (this.position === dealer) {
 				this.speak("Going alone.");
@@ -239,6 +235,10 @@ function AI(name, aggressiveness) {
 				this.speak("Pick it up, going alone.");
 			}
 			return [true, true];
+		} else if (partnerDiff >= 0 && partnerDiff > diff) {
+			//Do not go alone... you are doing this because your partner is the dealer
+			this.speak("Pick it up.");
+			return [true, false];
 		} else if (diff >= 0) {
 			//Pick it up
 			if (this.position !== dealer) {
