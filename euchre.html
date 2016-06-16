@@ -37,6 +37,8 @@
 		<br>
 		
 		<div id="debug">
+			Seed (0=random): <input type="number" value="0" min="0" max="999999999" id="seed" style="width: 80px">
+			<br>
 			Bravery range: <input type="number" value="15" min="0" max="999" id="aggroRange" style="width: 40px">
 			<br>
 			Call trump threshold: <input type="number" value="55" min="0" max="999" id="baseCall" style="width: 40px">
@@ -55,7 +57,11 @@
 	</div>
 	<div id="game">
 		<div id="header">
-			<input type="button" class="headerButton" id="reset" value="Reset"> <input type="button" class="headerButton" id="pause" value="Pause"> <input type="button" class="headerButton" id="end" value="End">
+			<input type="button" class="headerButton" id="reset" value="Reset">
+			<input type="button" class="headerButton" id="pause" value="Pause">
+			<input type="button" class="headerButton" id="end" value="End">
+			<input type="button" class="headerButton" id="rematch" value="Rematch">
+			<span id="seedSpan"></span>
 		</div>
 		<br>
 		<br>
