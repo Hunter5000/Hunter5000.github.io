@@ -13,6 +13,16 @@ var instant = false;
 var paused = false;
 var curMessage = -1;
 var curLine = 0;
+var gameNum = 0;
+var args;
+var origSeed;
+var seed;
+
+function random() {
+	"use strict";
+    var x = Math.sin(seed += 1) * 10000;
+    return x - Math.floor(x);
+}
 
 // Fisher-Yates algorithm //
 
@@ -23,7 +33,7 @@ function shuffle(array) {
 	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
 		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
+		randomIndex = Math.floor(random() * currentIndex);
 		currentIndex -= 1;
 		// And swap it with the current element.
 		temporaryValue = array[currentIndex];
@@ -50,6 +60,7 @@ function writeLine(text, bold, italic) {
 	}
 	newElement.textContent = thisLine + ": " + text;
 	newElement.style.display = "none";
+	newElement.id = "invisMsg";
 	if (bold) {
 		newElement.style.fontWeight = "bold";
 	}
@@ -59,22 +70,21 @@ function writeLine(text, bold, italic) {
 	document.getElementById("messages").appendChild(newElement);
 }
 
-function showMessage(n, forceEnd) {
+function showMessage(n, curGame, forceEnd) {
 	"use strict";
-	if (document.getElementById("messages").children[n] && curMessage > -1) {
+	if (document.getElementById("invisMsg") !== null && gameNum === curGame) {
 		if (!paused) {
 			document.getElementById("messages").children[n].style.display = "block";
+			document.getElementById("messages").children[n].id = "visMsg";
 			document.getElementById("messages").children[n].scrollIntoView();
 			if (instant || forceEnd) {
-				showMessage(n + 1, forceEnd);
+				showMessage(n + 1, curGame, forceEnd);
 			} else {
-				setTimeout(function () {showMessage(n + 1); }, delay);
+				setTimeout(function () {showMessage(n + 1, curGame); }, delay);
 			}
 		} else {
 			curMessage = n;
 		}
-	} else {
-		curMessage = -1;
 	}
 }
 
@@ -216,15 +226,15 @@ function AI(name, aggressiveness) {
 		//Considering yourself
 		if (this.position === dealer) {
 			//You get the card
-			diff = potentialValue - baseCall + (Math.random() * aggroRange * this.aggressiveness);
+			diff = potentialValue - baseCall + (random() * aggroRange * this.aggressiveness);
 		} else {
 			//You don't get the card
-			diff = totalValue - baseCall + (Math.random() * aggroRange * this.aggressiveness);
+			diff = totalValue - baseCall + (random() * aggroRange * this.aggressiveness);
 		}
 		//Considering your partner	
 		if (this.position % 2 === dealer % 2 && this.position !== dealer) {
 			//You are the dealer's partner
-			partnerDiff = totalValue + value - basePartnerCall + (Math.random() * aggroRange * this.aggressiveness);
+			partnerDiff = totalValue + value - basePartnerCall + (random() * aggroRange * this.aggressiveness);
 		}
 
 		if (diff >= goingAloneMalus) {
@@ -278,7 +288,7 @@ function AI(name, aggressiveness) {
 				highest = [curValue, i];
 			}
 		}
-		diff = highest[0] - baseCall + (Math.random() * aggroRange * this.aggressiveness);
+		diff = highest[0] - baseCall + (random() * aggroRange * this.aggressiveness);
 		if (diff >= goingAloneMalus) {
 			//Go alone
 			this.speak(suits[highest[1]] + ", going alone.");
@@ -396,6 +406,7 @@ function game(players, dealer) {
 	
 	curLine = 0;
 	curMessage = 0;
+	gameNum += 1;
 	
 	writeLine("Team 1: " + players[0].name + " and " + players[2].name + ".");
 	writeLine("Team 2: " + players[1].name + " and " + players[3].name + ".");
@@ -576,7 +587,7 @@ function game(players, dealer) {
 			writeLine("Team 2 wins " + score[1] + " to " + score[0] + "! Congratulations to " + players[1].name + " and " + players[3].name + ".", true);
 		}
 	}
-	showMessage(0);
+	showMessage(0, gameNum);
 }
 
 document.getElementById("aiDebug").onchange = function () {
@@ -599,6 +610,10 @@ document.getElementById("start").onclick = function () {
 	basePartnerCall = document.getElementById("basePartnerCall").value;
 	goingAloneMalus = document.getElementById("goingAloneMalus").value;
 	aggroRange = document.getElementById("aggroRange").value;
+	origSeed = (document.getElementById("seed").value % 1000000000) || Math.floor(Math.random() * 999999999);
+	seed = origSeed;
+	
+	document.getElementById("seedSpan").textContent = "Seed: " + origSeed;
 	
 	name00 = document.getElementById("name00").value || "Artour";
 	agg00 = (document.getElementById("agg00").value % 101) / 100;
@@ -628,7 +643,9 @@ document.getElementById("start").onclick = function () {
 	document.getElementById("setup").style.display = "none";
 	document.getElementById("game").style.display = "block";
 	
-	game([new AI(name00, agg00), new AI(name01, agg01), new AI(name10, agg10), new AI(name11, agg11)], dealer);
+	args = [[new AI(name00, agg00), new AI(name01, agg01), new AI(name10, agg10), new AI(name11, agg11)], dealer];
+	
+	game(args[0], args[1]);
 };
 
 document.getElementById("reset").onclick = function () {
@@ -650,11 +667,29 @@ document.getElementById("pause").onclick = function () {
 	paused = !paused;
 	document.getElementById("pause").value = paused ? "Unpause" : "Pause";
 	if (!paused) {
-		showMessage(curMessage);
+		showMessage(curMessage, gameNum);
 	}
 };
 
 document.getElementById("end").onclick = function () {
 	"use strict";
-	showMessage(0, true);
+	showMessage(0, gameNum, true);
+};
+
+document.getElementById("rematch").onclick = function () {
+	"use strict";
+	
+	paused = false;
+	document.getElementById("pause").value = paused ? "Unpause" : "Pause";
+	
+	while (document.getElementById("messages").hasChildNodes()) {
+		document.getElementById("messages").removeChild(document.getElementById("messages").firstChild);
+	}
+	
+	origSeed = (document.getElementById("seed").value % 1000000000) || Math.floor(Math.random() * 999999999);
+	seed = origSeed;
+	
+	document.getElementById("seedSpan").textContent = "Seed: " + origSeed;
+	
+	game(args[0], args[1]);
 };
