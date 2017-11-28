@@ -128,7 +128,7 @@ solve.addEventListener('click', () => {
 
   // Make initial commit
   const initial = {
-    index: 1,
+    index: -1,
     choice: -1,
     last: null,
   };
@@ -171,7 +171,7 @@ solve.addEventListener('click', () => {
           //  commit.last.index}`);
           commit = commit.last;
         }
-        if (commit) {
+        if (commit && commit.last) {
           retries += 1;
           // We have a commit to return to
           // Reset our current square's impossibilities
