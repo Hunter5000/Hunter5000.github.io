@@ -1,0 +1,29 @@
+#grid {
+  margin: 0;
+  padding: 0;
+}
+
+.square {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.square.preset {
+  background-color: gold;
+}
+
+.square.selected {
+  background-color: pink;
+}
+
+.filler {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+}
+
+.newLine {
+  display: block;
+  height: 50px;
+}
